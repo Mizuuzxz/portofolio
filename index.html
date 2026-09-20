@@ -1,71 +1,220 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Daffa | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">Portofolio.</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#projects">Proyek</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+```
+<div class="background-shapes">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Halo, Saya <span class="highlight">Nama Anda</span></h1>
-            <p>Seorang Developer & Creator yang berfokus pada pembelajaran.</p>
-            <a href="#projects" class="btn">Lihat Proyek</a>
+<header>
+    <nav>
+        <div class="logo">Daffa<span>.</span></div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </section>
+    </nav>
+</header>
 
-    <section id="about" class="about">
-        <h2>Tentang Saya</h2>
-        <p>Saya adalah seorang pembelajar yang antusias dalam dunia teknologi, pemrograman, dan desain. Selamat datang di halaman portofolio sederhana saya!</p>
-    </section>
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p class="intro">👋 Halo, selamat datang!</p>
 
-    <section id="projects" class="projects">
+        <h1>Saya <span class="highlight">Daffa.</span></h1>
+
+        <div class="typing-container">
+            <span class="typing-text" id="typingText"></span>
+            <span class="cursor">|</span>
+        </div>
+
+        <p class="hero-description">
+            Seorang pelajar yang tertarik dengan dunia teknologi,
+            pemrograman, desain, dan pengembangan website modern.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn primary-btn">
+                Lihat Proyek <span>→</span>
+            </a>
+            <a href="#about" class="btn secondary-btn">
+                Tentang Saya
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-decoration decoration-1"></div>
+    <div class="hero-decoration decoration-2"></div>
+
+    <a href="#about" class="scroll-indicator">
+        <span></span>
+    </a>
+</section>
+
+<section id="about" class="about">
+    <div class="section-title reveal">
+        <p>TENTANG SAYA</p>
+        <h2>Lebih Dekat Tentang Saya</h2>
+        <div class="title-line"></div>
+    </div>
+
+    <div class="about-description reveal">
+        <p>
+            Saya adalah seorang pelajar yang memiliki ketertarikan besar
+            terhadap dunia teknologi dan pemrograman. Saya senang mencoba
+            hal baru, membuat project, dan terus mengembangkan kemampuan
+            dalam bidang digital.
+        </p>
+    </div>
+
+    <div class="about-container">
+        <div class="about-card reveal">
+            <div class="about-icon">💻</div>
+            <h3>Developer</h3>
+            <p>Tertarik mempelajari berbagai teknologi dan bahasa pemrograman modern.</p>
+        </div>
+
+        <div class="about-card reveal">
+            <div class="about-icon">🚀</div>
+            <h3>Pembelajar</h3>
+            <p>Selalu mencoba hal baru dan terus meningkatkan kemampuan diri.</p>
+        </div>
+
+        <div class="about-card reveal">
+            <div class="about-icon">🎨</div>
+            <h3>Creator</h3>
+            <p>Menyukai desain digital dan menciptakan project yang menarik.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="projects">
+    <div class="section-title reveal">
+        <p>PORTOFOLIO</p>
         <h2>Proyek Pilihan</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Proyek 1</h3>
-                <p>Deskripsi singkat mengenai proyek pertama yang telah dibuat menggunakan teknologi web dasar.</p>
+        <div class="title-line"></div>
+    </div>
+
+    <div class="project-grid">
+        <div class="project-card reveal">
+            <div class="project-top">
+                <div class="project-number">01</div>
+                <div class="project-icon">🌐</div>
             </div>
-            <div class="project-card">
-                <h3>Proyek 2</h3>
-                <p>Deskripsi singkat mengenai proyek kedua yang berfokus pada fungsionalitas dan tampilan interaktif.</p>
+
+            <h3>Website Portfolio</h3>
+
+            <p>
+                Website portfolio pribadi dengan desain modern,
+                responsive, dan berbagai animasi interaktif.
+            </p>
+
+            <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
             </div>
-            <div class="project-card">
-                <h3>Proyek 3</h3>
-                <p>Deskripsi singkat mengenai proyek ketiga yang menerapkan prinsip desain responsif.</p>
-            </div>
+
+            <button class="project-btn">
+                Lihat Project <span>→</span>
+            </button>
         </div>
-    </section>
 
-    <section id="contact" class="contact">
-        <h2>Hubungi Saya</h2>
-        <p>Tertarik untuk bekerja sama atau ingin berdiskusi? Silakan kirim pesan melalui tombol di bawah ini.</p>
-        <button id="contactBtn" class="btn">Kirim Pesan</button>
-    </section>
+        <div class="project-card reveal">
+            <div class="project-top">
+                <div class="project-number">02</div>
+                <div class="project-icon">⚡</div>
+            </div>
 
-    <footer>
-        <p>&copy; 2026 Portofolio Saya. Dibuat untuk tujuan pembelajaran.</p>
-    </footer>
+            <h3>Interactive Website</h3>
 
-    <script src="script.js"></script>
+            <p>
+                Website dengan berbagai fitur interaktif
+                menggunakan JavaScript untuk meningkatkan pengalaman pengguna.
+            </p>
+
+            <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+            <button class="project-btn">
+                Lihat Project <span>→</span>
+            </button>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-top">
+                <div class="project-number">03</div>
+                <div class="project-icon">📱</div>
+            </div>
+
+            <h3>Responsive Design</h3>
+
+            <p>
+                Website dengan tampilan yang dapat menyesuaikan
+                berbagai ukuran layar desktop maupun smartphone.
+            </p>
+
+            <div class="project-tech">
+                <span>UI Design</span>
+                <span>Responsive</span>
+            </div>
+
+            <button class="project-btn">
+                Lihat Project <span>→</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="contact-box reveal">
+        <p class="contact-small">HUBUNGI SAYA</p>
+
+        <h2>Mari Buat Sesuatu yang Keren Bersama.</h2>
+
+        <p>
+            Tertarik berdiskusi tentang teknologi, project,
+            atau ingin berkolaborasi? Jangan ragu untuk menghubungi saya.
+        </p>
+
+        <button id="contactBtn" class="btn contact-btn">
+            Kirim Pesan <span>✉</span>
+        </button>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">Daffa<span>.</span></div>
+    <p>© 2026 Daffa. Dibuat dengan HTML, CSS & JavaScript.</p>
+</footer>
+
+<script src="script.js"></script>
+```
+
 </body>
 </html>

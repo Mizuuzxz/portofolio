@@ -1,91 +1,170 @@
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-const header = document.querySelector('header');
+// ========================================
+// AUTOVAULT - JAVASCRIPT
+// ========================================
 
-if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
+const carCards = document.querySelectorAll(".car-card");
+const searchInput = document.getElementById("searchInput");
+const brandFilter = document.getElementById("brandFilter");
+const noResults = document.getElementById("noResults");
+
+const modal = document.getElementById("carModal");
+const closeModalButton = document.getElementById("closeModal");
+
+
+// ========================================
+// SEARCH DAN FILTER MOBIL
+// ========================================
+
+function filterCars() {
+    const searchText = searchInput.value.toLowerCase().trim();
+    const selectedBrand = brandFilter.value;
+
+    let visibleCars = 0;
+
+    carCards.forEach((card) => {
+        const carName = card.dataset.name.toLowerCase();
+        const carBrand = card.dataset.brand;
+
+        const matchesSearch = carName.includes(searchText);
+
+        const matchesBrand =
+            selectedBrand === "all" ||
+            carBrand === selectedBrand;
+
+        const shouldShow = matchesSearch && matchesBrand;
+
+        card.hidden = !shouldShow;
+
+        if (shouldShow) {
+            visibleCars++;
+        }
     });
+
+    noResults.hidden = visibleCars > 0;
 }
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
+searchInput.addEventListener("input", filterCars);
+brandFilter.addEventListener("change", filterCars);
+
+
+// ========================================
+// MODAL SPESIFIKASI MOBIL
+// ========================================
+
+function openModal(card) {
+    document.getElementById("modalBrand").textContent =
+        card.dataset.brand.toUpperCase() + " / SPECIFICATIONS";
+
+    document.getElementById("modalName").textContent =
+        card.dataset.name;
+
+    document.getElementById("modalYear").textContent =
+        "Model year reference: " + card.dataset.year;
+
+    document.getElementById("modalEngine").textContent =
+        card.dataset.engine;
+
+    document.getElementById("modalPower").textContent =
+        card.dataset.power;
+
+    document.getElementById("modalTorque").textContent =
+        card.dataset.torque;
+
+    document.getElementById("modalTransmission").textContent =
+        card.dataset.transmission;
+
+    document.getElementById("modalDrive").textContent =
+        card.dataset.drive;
+
+    document.getElementById("modalSpeed").textContent =
+        card.dataset.speed;
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".details-button").forEach((button) => {
+    button.addEventListener("click", () => {
+        const card = button.closest(".car-card");
+        openModal(card);
     });
 });
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+closeModalButton.addEventListener("click", closeModal);
+
+// Tutup modal saat area gelap di luar kotak diklik.
+modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        closeModal();
     }
 });
 
-const reveals = document.querySelectorAll('.reveal');
+// Tutup modal dengan tombol Escape.
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
 
-function revealOnScroll() {
-    reveals.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
 
-        if (elementTop < windowHeight - 80) {
-            element.classList.add('active');
-        }
-    });
-}
+// ========================================
+// ANIMASI SAAT SCROLL
+// ========================================
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+const revealElements = document.querySelectorAll(".reveal");
 
-const typingText = document.getElementById('typingText');
-
-if (typingText) {
-    const texts = [
-        'Front End Developer',
-        'Student & Learner',
-        'Creative Developer',
-        'Technology Enthusiast'
-    ];
-
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeEffect() {
-        const currentText = texts[textIndex];
-
-        if (!isDeleting) {
-            typingText.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-
-            if (charIndex === currentText.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 1500);
-                return;
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
             }
+        });
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealElements.forEach((element) => {
+    revealObserver.observe(element);
+});
+
+
+// ========================================
+// EFEK NAVBAR SAAT SCROLL
+// ========================================
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener(
+    "scroll",
+    () => {
+        if (window.scrollY > 50) {
+            navbar.style.background = "#0b0c0eeF";
         } else {
-            typingText.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-
-            if (charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-            }
+            navbar.style.background = "#0b0c0e70";
         }
+    },
+    { passive: true }
+);
 
-        setTimeout(typeEffect, isDeleting ? 50 : 90);
-    }
 
-    typeEffect();
+// ========================================
+// TAHUN FOOTER OTOMATIS
+// ========================================
+
+const copyright = document.querySelector(".copyright");
+
+if (copyright) {
+    copyright.textContent =
+        `© ${new Date().getFullYear()} AutoVault. All rights reserved.`;
 }
 
-const contactBtn = document.getElementById('contactBtn');
-
-if (contactBtn) {
-    contactBtn.addEventListener('click', () => {
-        alert('Terima kasih sudah tertarik! Saat ini fitur kontak masih dalam pengembangan.');
-    });
-}
+console.log("AutoVault website loaded successfully!");

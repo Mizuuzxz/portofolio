@@ -1,343 +1,188 @@
+```html
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoVault | Automotive Experience</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>AutoVault | Premium Car Showcase</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
 
-    <header class="navbar">
+    <nav class="navbar">
         <a href="#" class="logo">AUTO<span>VAULT</span></a>
-
-        <nav>
+        <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#cars">Explore Cars</a>
+            <a href="#collection">Collection</a>
             <a href="#about">About</a>
-        </nav>
-
-        <a href="#cars" class="nav-button">Explore Now ↗</a>
-    </header>
+        </div>
+    </nav>
 
     <section class="hero" id="home">
-        <div class="hero-content">
-            <p class="eyebrow">THE WORLD OF AUTOMOTIVE</p>
-
-            <h1>
-                DRIVE YOUR<br>
-                <span>PASSION.</span>
-            </h1>
-
-            <p class="hero-description">
-                Discover extraordinary machines, explore legendary
-                engineering, and experience the art of performance.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#cars" class="primary-button">Discover Cars ↗</a>
-                <a href="#about" class="secondary-button">Learn More</a>
-            </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=85" alt="Porsche sports car">
+            <div class="hero-overlay"></div>
         </div>
 
-        <div class="hero-image">
-            <img
-                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=85"
-                alt="Sports car"
-            >
-            <div class="image-overlay"></div>
-            <div class="hero-tag">
-                <span>01 / AUTOMOTIVE COLLECTION</span>
-                <h3>BUILT TO PERFORM.</h3>
-            </div>
+        <div class="hero-content">
+            <p class="hero-tag">THE ART OF AUTOMOTIVE</p>
+            <h1>DRIVE YOUR<br><span>DREAMS.</span></h1>
+            <p>Discover extraordinary machines built for performance, luxury, and pure driving pleasure.</p>
+            <a href="#collection" class="btn">Explore Collection ↗</a>
         </div>
 
         <div class="hero-bottom">
-            <span>ENGINEERING MEETS EMOTION</span>
-            <span>SCROLL TO EXPLORE ↓</span>
+            <span>EST. 2026</span>
+            <span>PERFORMANCE · LUXURY · PASSION</span>
         </div>
     </section>
 
-    <section class="cars-section" id="cars">
-        <div class="section-heading reveal">
+    <section class="collection" id="collection">
+        <div class="section-heading">
             <div>
-                <p class="eyebrow">OUR COLLECTION</p>
-                <h2>FIND YOUR <span>MACHINE.</span></h2>
+                <p class="section-tag">OUR SELECTION</p>
+                <h2>Featured <span>Collection</span></h2>
             </div>
-
-            <p class="section-description">
-                From precision-engineered sports cars to
-                high-performance machines.
-            </p>
+            <p class="collection-count">04 VEHICLES</p>
         </div>
 
-        <div class="search-container reveal">
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search your dream car..."
-            >
+        <div class="filter-bar">
+            <input type="text" id="searchInput" placeholder="Search your dream car...">
 
             <select id="brandFilter">
                 <option value="all">All Brands</option>
-                <option value="Honda">Honda</option>
-                <option value="Toyota">Toyota</option>
-                <option value="BMW">BMW</option>
                 <option value="Porsche">Porsche</option>
+                <option value="BMW">BMW</option>
+                <option value="Ferrari">Ferrari</option>
+                <option value="Lamborghini">Lamborghini</option>
             </select>
         </div>
 
-        <div class="car-grid" id="carGrid">
+        <div class="car-grid">
 
-            <article class="car-card reveal"
-                data-brand="Honda"
-                data-name="Honda Civic Type R FL5"
-                data-engine="2.0L Turbocharged Inline-4"
-                data-power="315 HP"
-                data-torque="420 Nm"
-                data-transmission="6-speed Manual"
-                data-drive="Front-Wheel Drive"
-                data-speed="Around 275 km/h"
-                data-year="2024">
-
+            <article class="car-card" data-brand="Porsche">
                 <div class="car-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=80"
-                        alt="Honda sports car"
-                    >
-                    <span class="car-category">SPORTS HATCHBACK</span>
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Porsche 911 Carrera">
+                    <span class="car-number">01</span>
                 </div>
-
-                <div class="car-info">
-                    <p class="car-brand">HONDA</p>
-                    <h3>Civic Type R FL5</h3>
-                    <p class="car-subtitle">Precision. Power. Control.</p>
-
-                    <div class="car-specs">
-                        <div>
-                            <span>POWER</span>
-                            <strong>315 HP</strong>
-                        </div>
-                        <div>
-                            <span>ENGINE</span>
-                            <strong>2.0L Turbo</strong>
-                        </div>
-                    </div>
-
-                    <button class="details-button">View Specifications ↗</button>
-                </div>
-            </article>
-
-            <article class="car-card reveal"
-                data-brand="Toyota"
-                data-name="Toyota GR86"
-                data-engine="2.4L Naturally Aspirated Flat-4"
-                data-power="228 HP"
-                data-torque="250 Nm"
-                data-transmission="6-speed Manual / Automatic"
-                data-drive="Rear-Wheel Drive"
-                data-speed="Around 226 km/h"
-                data-year="2024">
-
-                <div class="car-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80"
-                        alt="Toyota sports coupe"
-                    >
-                    <span class="car-category">SPORTS COUPE</span>
-                </div>
-
-                <div class="car-info">
-                    <p class="car-brand">TOYOTA</p>
-                    <h3>GR86</h3>
-                    <p class="car-subtitle">Pure driving pleasure.</p>
-
-                    <div class="car-specs">
-                        <div>
-                            <span>POWER</span>
-                            <strong>228 HP</strong>
-                        </div>
-                        <div>
-                            <span>ENGINE</span>
-                            <strong>2.4L Boxer</strong>
-                        </div>
-                    </div>
-
-                    <button class="details-button">View Specifications ↗</button>
-                </div>
-            </article>
-
-            <article class="car-card reveal"
-                data-brand="BMW"
-                data-name="BMW M3 Competition"
-                data-engine="3.0L Twin-Turbocharged Inline-6"
-                data-power="503 HP"
-                data-torque="650 Nm"
-                data-transmission="8-speed Automatic"
-                data-drive="Rear-Wheel Drive"
-                data-speed="Up to 290 km/h with suitable package"
-                data-year="2024">
-
-                <div class="car-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1000&q=80"
-                        alt="BMW performance car"
-                    >
-                    <span class="car-category">PERFORMANCE SEDAN</span>
-                </div>
-
-                <div class="car-info">
-                    <p class="car-brand">BMW</p>
-                    <h3>M3 Competition</h3>
-                    <p class="car-subtitle">Luxury meets aggression.</p>
-
-                    <div class="car-specs">
-                        <div>
-                            <span>POWER</span>
-                            <strong>503 HP</strong>
-                        </div>
-                        <div>
-                            <span>ENGINE</span>
-                            <strong>3.0L Twin-Turbo</strong>
-                        </div>
-                    </div>
-
-                    <button class="details-button">View Specifications ↗</button>
-                </div>
-            </article>
-
-            <article class="car-card reveal"
-                data-brand="Porsche"
-                data-name="Porsche 911 Carrera"
-                data-engine="3.0L Twin-Turbocharged Flat-6"
-                data-power="388 HP"
-                data-torque="450 Nm"
-                data-transmission="8-speed PDK"
-                data-drive="Rear-Wheel Drive"
-                data-speed="Around 294 km/h"
-                data-year="2025">
-
-                <div class="car-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=80"
-                        alt="Porsche sports car"
-                    >
-                    <span class="car-category">LUXURY SPORTS CAR</span>
-                </div>
-
                 <div class="car-info">
                     <p class="car-brand">PORSCHE</p>
                     <h3>911 Carrera</h3>
-                    <p class="car-subtitle">An icon, redefined.</p>
-
-                    <div class="car-specs">
-                        <div>
-                            <span>POWER</span>
-                            <strong>388 HP</strong>
-                        </div>
-                        <div>
-                            <span>ENGINE</span>
-                            <strong>3.0L Flat-6</strong>
-                        </div>
+                    <div class="car-details">
+                        <span>Sports Car</span>
+                        <button class="details-btn"
+                            data-name="Porsche 911 Carrera"
+                            data-brand="Porsche"
+                            data-engine="3.0L Twin-Turbo Flat-Six"
+                            data-power="388 HP"
+                            data-speed="293 km/h"
+                            data-description="An iconic sports car combining timeless design, precision engineering, and exhilarating performance.">View Details ↗</button>
                     </div>
+                </div>
+            </article>
 
-                    <button class="details-button">View Specifications ↗</button>
+            <article class="car-card" data-brand="BMW">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80" alt="BMW M4">
+                    <span class="car-number">02</span>
+                </div>
+                <div class="car-info">
+                    <p class="car-brand">BMW</p>
+                    <h3>M4 Competition</h3>
+                    <div class="car-details">
+                        <span>Performance Coupe</span>
+                        <button class="details-btn"
+                            data-name="BMW M4 Competition"
+                            data-brand="BMW"
+                            data-engine="3.0L Twin-Turbo Inline-Six"
+                            data-power="503 HP"
+                            data-speed="290 km/h"
+                            data-description="A high-performance coupe delivering aggressive styling, sharp handling, and powerful acceleration.">View Details ↗</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="car-card" data-brand="Ferrari">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=900&q=80" alt="Ferrari sports car">
+                    <span class="car-number">03</span>
+                </div>
+                <div class="car-info">
+                    <p class="car-brand">FERRARI</p>
+                    <h3>Ferrari 488 GTB</h3>
+                    <div class="car-details">
+                        <span>Supercar</span>
+                        <button class="details-btn"
+                            data-name="Ferrari 488 GTB"
+                            data-brand="Ferrari"
+                            data-engine="3.9L Twin-Turbo V8"
+                            data-power="661 HP"
+                            data-speed="330 km/h"
+                            data-description="An Italian supercar celebrated for its sculpted design, racing heritage, and thrilling V8 performance.">View Details ↗</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="car-card" data-brand="Lamborghini">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80" alt="Lamborghini supercar">
+                    <span class="car-number">04</span>
+                </div>
+                <div class="car-info">
+                    <p class="car-brand">LAMBORGHINI</p>
+                    <h3>Huracán EVO</h3>
+                    <div class="car-details">
+                        <span>Supercar</span>
+                        <button class="details-btn"
+                            data-name="Lamborghini Huracán EVO"
+                            data-brand="Lamborghini"
+                            data-engine="5.2L Naturally Aspirated V10"
+                            data-power="631 HP"
+                            data-speed="325 km/h"
+                            data-description="A dramatic Italian supercar featuring a naturally aspirated V10 and an unmistakable design.">View Details ↗</button>
+                    </div>
                 </div>
             </article>
 
         </div>
-
-        <p id="noResults" class="no-results" hidden>
-            No cars found. Try another keyword.
-        </p>
     </section>
 
-    <section class="about-section" id="about">
-        <div class="about-content reveal">
-            <p class="eyebrow">MORE THAN JUST CARS</p>
-            <h2>ENGINEERED FOR<br><span>ENTHUSIASTS.</span></h2>
-
-            <p>
-                AutoVault is a digital space for automotive enthusiasts.
-                Explore performance, technology, design, and the engineering
-                behind some of the world's most exciting cars.
-            </p>
-
-            <a href="#cars" class="primary-button">Explore Collection ↗</a>
-        </div>
-
-        <div class="about-stats reveal">
-            <div class="stat">
-                <h3>04<span>+</span></h3>
-                <p>FEATURED CARS</p>
-            </div>
-
-            <div class="stat">
-                <h3>01</h3>
-                <p>PASSION FOR CARS</p>
-            </div>
-
-            <div class="stat">
-                <h3>∞</h3>
-                <p>DRIVING DREAMS</p>
-            </div>
-        </div>
+    <section class="about" id="about">
+        <p class="section-tag">ABOUT AUTOVAULT</p>
+        <h2>More Than Just <span>Machines.</span></h2>
+        <p>AutoVault is a showcase for automotive excellence, celebrating the engineering, design, and passion behind extraordinary cars.</p>
     </section>
 
-    <footer>
-        <a href="#" class="logo">AUTO<span>VAULT</span></a>
-        <p>Designed for automotive enthusiasts.</p>
-        <p class="copyright">© 2026 AutoVault. All rights reserved.</p>
+    <footer class="footer">
+        <a href="#home" class="logo">AUTO<span>VAULT</span></a>
+        <p>© <span id="year"></span> AutoVault. All rights reserved.</p>
     </footer>
 
     <div class="modal" id="carModal">
         <div class="modal-content">
-            <button class="close-modal" id="closeModal">&times;</button>
-
-            <p class="eyebrow" id="modalBrand">CAR SPECIFICATIONS</p>
+            <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+            <p class="section-tag" id="modalBrand">CAR DETAILS</p>
             <h2 id="modalName">Car Name</h2>
-            <p class="modal-year" id="modalYear"></p>
+            <p id="modalDescription"></p>
 
-            <div class="modal-spec-grid">
-                <div class="modal-spec">
+            <div class="modal-specs">
+                <div>
                     <span>ENGINE</span>
-                    <strong id="modalEngine"></strong>
+                    <p id="modalEngine"></p>
                 </div>
-
-                <div class="modal-spec">
+                <div>
                     <span>POWER</span>
-                    <strong id="modalPower"></strong>
+                    <p id="modalPower"></p>
                 </div>
-
-                <div class="modal-spec">
-                    <span>TORQUE</span>
-                    <strong id="modalTorque"></strong>
-                </div>
-
-                <div class="modal-spec">
-                    <span>TRANSMISSION</span>
-                    <strong id="modalTransmission"></strong>
-                </div>
-
-                <div class="modal-spec">
-                    <span>DRIVETRAIN</span>
-                    <strong id="modalDrive"></strong>
-                </div>
-
-                <div class="modal-spec">
+                <div>
                     <span>TOP SPEED</span>
-                    <strong id="modalSpeed"></strong>
+                    <p id="modalSpeed"></p>
                 </div>
             </div>
-
-            <p class="modal-note">
-                Specifications are reference figures and may vary by
-                model year, market, and vehicle configuration.
-            </p>
         </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
+```
